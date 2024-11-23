@@ -1,12 +1,12 @@
 "use strict";
-import { EntitySchema } from "typeorm";
+import { EntitySchema } from "typeorm"; 
 
 const UserSchema = new EntitySchema({
     name: "User",
     tableName: "users",
     columns: {
         id: {
-            type: "type",
+            type: "int",
             primary: true,
             generated: true
         },
