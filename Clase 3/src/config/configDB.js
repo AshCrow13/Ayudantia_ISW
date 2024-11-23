@@ -1,6 +1,6 @@
 "use strict";
 import { DataSource } from "typeorm"; // Import DataSource from typeorm
-import { DATABASE, DB_USERNAME, HOST, PASSWORD } from '.configEnv.js'; // Import DATABASE, DB_USERNAME, HOST, and PASSWORD from configEnv.js    
+import { DATABASE, DB_USERNAME, HOST, PASSWORD } from './configEnv.js'; // Import DATABASE, DB_USERNAME, HOST, and PASSWORD from configEnv.js    
 
 export const AppDataSource = new DataSource({ // Create a new DataSource
     type: "postgres", // Set the type to postgres
@@ -16,9 +16,10 @@ export const AppDataSource = new DataSource({ // Create a new DataSource
 
 export async function connectDB() { // Create an async function called connectDB
     try {
-        await AppDataSource.connectDB(); // Connect to the database
+        await AppDataSource.initialize(); // Connect to the database
         console.log("Conexión a la base de datos exitosa"); // Log success message
     } catch (error) {
         console.error("Error en configDB.js", error); // Log error message
+        process.exit(1); // Exit the process
     }
 }
