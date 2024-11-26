@@ -27,6 +27,17 @@ const UserSchema = new EntitySchema({
             nullable: false,
             unique: true,
         },
+        rol: {
+            type: "varchar",
+            length: 50,
+            nullable: false,
+            unique: false
+        },
+        password: {
+            type: "varchar",
+            length: 30,
+            nullable: false,
+        },
         createdAt: {
             type: "timestamp with time zone",
             default: () => "CURRENT_TIMESTAMP",
