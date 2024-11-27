@@ -6,7 +6,7 @@ import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import session from 'express-session';
 import passport from 'passport';
-import { PassportJwtSetup } from './auth/passport-setup.js';
+import { passportJwtSetup } from './auth/passport-setup.js';
 
 async function setupServer() {
     try {
@@ -30,7 +30,7 @@ async function setupServer() {
         app.use(passport.initialize()); // Middleware para inicializar passport
         app.use(passport.session()); // Middleware para manejar las sesiones de passport
 
-        PassportJwtSetup(); // Configurar passport con la estrategia de JWT
+        passportJwtSetup(); // Configurar passport con la estrategia de JWT
         
         app.use('/api', indexRoutes); // Middleware para manejar las rutas de la API
 
