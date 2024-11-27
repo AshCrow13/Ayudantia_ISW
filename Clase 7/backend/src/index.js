@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import session from 'express-session';
 import passport from 'passport';
+import cors from 'cors';
 import { passportJwtSetup } from './auth/passport-setup.js';
 
 async function setupServer() {
@@ -13,6 +14,8 @@ async function setupServer() {
         const app = express();
         
         app.use(json());
+
+        app.use(cors());
 
         app.use(cookieParser());
 
